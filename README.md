@@ -1,6 +1,9 @@
 # Reddit-Morse-Code-Bot
 A bot that will decode Reddit comments written in Morse code.
 
+# Usage
+To use this bot, simply mention its name in reply to whatever you want translated. The bot will post a translation in reply to the original comment.
+
 # Contributing
 This is a personal project, so I will not be accepting pull requests.
 You are, however, welcome to submit issues or suggestions via the Issues tab.
