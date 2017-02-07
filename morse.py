@@ -33,7 +33,7 @@ def _morse_match_to_latin(morse_match):
         return morse_text;
 
 def to_latin(text_with_morse):
-    return re.sub(r'[.-]+[ ]?', _morse_match_to_latin, text_with_morse);
+    return re.sub(r'([.-]+|/)[ ]?', _morse_match_to_latin, text_with_morse);
 
 def _latin_match_to_morse(latin_match):
     latin_char = latin_match.group(0).upper();

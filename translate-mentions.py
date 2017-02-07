@@ -13,7 +13,15 @@ bot_footer = load_bot_footer();
 num_replies = 0;
 num_failed = 0;
 
-for mention in itertools.ifilter(lambda x: x.new, reddit.inbox.mentions(limit = 10)):
+def comments_to_translate():
+    for mention in reddit.inbox.mentions(limit = 10):
+        if(mention.new):
+            yield mention
+    for reply in reddit.inbox.comment_replies(limit = 10):
+        if(reply.new and reddit.user.me().name in reply.body):
+            yield reply
+
+for mention in comments_to_translate():
     try:
         mention.refresh()
         parent = mention.parent()
