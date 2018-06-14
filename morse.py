@@ -23,11 +23,11 @@ LATIN_TO_MORSE = {
         '+': '.-.-.'
  }
 
-MORSE_TO_LATIN = {v: k for k,v in LATIN_TO_MORSE.iteritems()}
+MORSE_TO_LATIN = {v: k for k,v in LATIN_TO_MORSE.items()}
 
 def _morse_match_to_latin(morse_match):
     morse_text = morse_match.group(0).strip();
-    if(MORSE_TO_LATIN.has_key(morse_text)):
+    if morse_text in MORSE_TO_LATIN:
         return MORSE_TO_LATIN[morse_text]
     else:
         return morse_text;
@@ -37,7 +37,7 @@ def to_latin(text_with_morse):
 
 def _latin_match_to_morse(latin_match):
     latin_char = latin_match.group(0).upper();
-    if(LATIN_TO_MORSE.has_key(latin_char)):
+    if latin_char in LATIN_TO_MORSE:
         return LATIN_TO_MORSE[latin_char] + ' '
     else:
         return latin_char;
